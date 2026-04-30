@@ -31,7 +31,7 @@ if(!isset($_SESSION['usuario'])) {
         <li class='nav-item'>
           <form method='POST' action='procesar_filtro.php' class='d-flex gap-2'>
             <select name='departamento' class='form-select form-select-sm' style='width: auto;' aria-label='Selecciona un departamento'>
-              <option value='Todos' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Todos' ? 'selected' : '') . ">Todos (Dpto)</option>
+              <option value='todos' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'todos' ? 'selected' : '') . ">Todos (Dpto)</option>
               <option value='Ahuachapán' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Ahuachapán' ? 'selected' : '') . ">Ahuachapán</option>
               <option value='Santa Ana' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Santa Ana' ? 'selected' : '') . ">Santa Ana</option>
               <option value='Sonsonate' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Sonsonate' ? 'selected' : '') . ">Sonsonate</option>
@@ -74,7 +74,7 @@ if(!isset($_SESSION['usuario'])) {
           <a class='nav-link' href='salir.php'>salir</a>
       </ul>
       <form class='d-flex' role='search' action='procesar_filtro.php' method='POST'>
-        <input class='form-control me-2' method='post' type='search' placeholder='Buscar destino' id='buscar' name='buscar' value='" . (isset($_POST['buscar']) ? $_POST['buscar'] : '') . "' aria-label='Search'/>
+        <input class='form-control me-2' type='search' placeholder='Buscar destino' id='buscar' name='buscar' value='" . (isset($_SESSION['buscar']) ? $_SESSION['buscar'] : '') . "' aria-label='Search'/>
         <button class='btn btn-outline-light' type='submit'>Buscar</button>
       </form>
     </div>
@@ -105,7 +105,7 @@ if(!isset($_SESSION['usuario'])) {
          <li class='nav-item'>
           <form method='POST' action='procesar_filtro.php' class='d-flex gap-2'>
             <select name='departamento' class='form-select form-select-sm' style='width: auto;' aria-label='Selecciona un departamento'>
-              <option value='Todos' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Todos' ? 'selected' : '') . ">Todos (Dpto)</option>
+              <option value='todos' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'todos' ? 'selected' : '') . ">Todos (Dpto)</option>
               <option value='Ahuachapán' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Ahuachapán' ? 'selected' : '') . ">Ahuachapán</option>
               <option value='Santa Ana' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Santa Ana' ? 'selected' : '') . ">Santa Ana</option>
               <option value='Sonsonate' " . (isset($_SESSION['departamento']) && $_SESSION['departamento'] == 'Sonsonate' ? 'selected' : '') . ">Sonsonate</option>
@@ -138,7 +138,7 @@ if(!isset($_SESSION['usuario'])) {
           <a class='nav-link' href='salir.php'>salir</a>
       </ul>
       <form class='d-flex' role='search' action='procesar_filtro.php' method='POST'>
-        <input class='form-control me-2' type='search' placeholder='Buscar destino' name='buscar' id='buscar' value='" . (isset($_POST['buscar']) ? $_POST['buscar'] : '') . "' method='post' aria-label='Search'/>
+        <input class='form-control me-2' type='search' placeholder='Buscar destino' name='buscar' id='buscar' value='" . (isset($_SESSION['buscar']) ? $_SESSION['buscar'] : '') . "' aria-label='Search'/>
         <button class='btn btn-outline-light' type='submit'>Buscar</button>
       </form>
     </div>

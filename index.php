@@ -13,18 +13,20 @@ $rol = $_SESSION['rol'];
     <div class="row g-4">
 <?php
 // Obtener los filtros seleccionados por el usuario
-$departamento = isset($_SESSION['departamento']) ? $_SESSION['departamento'] : "Todos";
+$departamento = isset($_SESSION['departamento']) ? $_SESSION['departamento'] : "todos";
 $categoria = isset($_SESSION['categoria']) ? $_SESSION['categoria'] : "todos";
 $buscar = isset($_SESSION['buscar']) ? $_SESSION['buscar'] : "";
 // Construir la consulta SQL según los filtros
-if ($departamento != 'Todos' && $categoria != 'todos') {
+if ($departamento != 'todos' && $categoria != 'todos') {
     $consulta = mysqli_query($conexion, "SELECT * FROM destinos WHERE departamento='$departamento' AND categoria='$categoria'");
-} else if ($departamento != 'Todos') {
+} else if ($departamento != 'todos') {
     $consulta = mysqli_query($conexion, "SELECT * FROM destinos WHERE departamento='$departamento'");
 } else if ($categoria != 'todos') {
     $consulta = mysqli_query($conexion, "SELECT * FROM destinos WHERE categoria='$categoria'");
 } else {
   if (!empty($buscar)) {
+    $_SESSION['departamento'] = "todos";
+    $_SESSION['categoria'] = "todos";
     $consulta = mysqli_query($conexion, "SELECT * FROM destinos WHERE nombre LIKE '%$buscar%' OR descripcion LIKE '%$buscar%'or departamento LIKE '%$buscar%' OR categoria LIKE '%$buscar%' or clima_promedio LIKE '%$buscar%' OR precio_sugerido_usd LIKE '%$buscar%'");
   } else {
     $consulta = mysqli_query($conexion, "SELECT * FROM destinos");

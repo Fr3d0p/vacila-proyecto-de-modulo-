@@ -15,6 +15,8 @@ if (isset($_POST['categoria'])) {
 }
 if (isset($_POST['buscar'])) {
     $_SESSION['buscar'] = $_POST['buscar'];
+    $_SESSION['departamento'] = "todos"; // Limpiar el filtro de departamento al usar búsqueda   
+    $_SESSION['categoria'] = "todos"; // Limpiar el filtro de categoría al usar búsqueda
 }
 
 header('location: index.php');
